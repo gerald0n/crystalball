@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bola de Cristal</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="shortcut icon"
+            href="https://gist.githubusercontent.com/maykbrito/0acdf4ce919838ffed50915a31fc5b23/raw/6f4dd01ec3116428ec4c99255944cb9ac7927590/cristal-ball.svg"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <main class="main-container">
+            <img
+                src="https://gist.githubusercontent.com/maykbrito/0acdf4ce919838ffed50915a31fc5b23/raw/6f4dd01ec3116428ec4c99255944cb9ac7927590/cristal-ball.svg"
+                alt="Imagem de uma bola de cristal"
+            />
+            <h1>Vou revelar seu destino!</h1>
+            <p>Clique em fazer pergunta para que seu destino seja revelado.</p>
+            <form onsubmit="noSubmit()">
+                <input
+                    id="input"
+                    type="text"
+                    placeholder="Digite sua pergunta"
+                    name="entrada"
+                    ;
+                />
+                <button onclick="showAnswer()">Fazer Pergunta</button>
+            </form>
+            <div class="answer">
+                <span id="question"></span>
+                <span id="showAnswer"></span>
+            </div>
+        </main>
+
+        <script>
+            function noSubmit() {
+                event.preventDefault()
+            }
+
+            function getQuestion() {
+                var question = document.getElementById('input')
+                return question.value
+            }
+
+            var arrAnswer = [
+                'Claro que sim!',
+                'Acho que não :(',
+                'Hummm, talvez...',
+                'Tente novamente!',
+                'Se manque!!!',
+                'Com certeza.',
+                'Sim.',
+                'Vai dar certo!'
+            ]
+
+            function showAnswer() {
+                var numberRandom = Math.floor(
+                    Math.random() * arrAnswer.length - 0
+                )
+
+                if (getQuestion() == '') {
+                    document
+                        .getElementById('input')
+                        .setAttribute('required', 'required')
+
+                    document.getElementById('question').textContent = ''
+                    document.getElementById('showAnswer').textContent = ''
+                } else {
+                    document.getElementById('question').textContent =
+                        getQuestion()
+                    document.getElementById('showAnswer').textContent =
+                        arrAnswer[numberRandom]
+                }
+
+                document.getElementById('input').value = '';
+            }
+        </script>
+    </body>
+</html>
