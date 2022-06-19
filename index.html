@@ -74,9 +74,12 @@
                         getQuestion()
                     document.getElementById('showAnswer').textContent =
                         arrAnswer[numberRandom]
-                }
 
-                document.getElementById('input').value = '';
+                    document.getElementById('input').value = ''
+                    document
+                        .getElementById('input')
+                        .removeAttribute('required', 'required')
+                }
             }
         </script>
     </body>
