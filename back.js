@@ -1,13 +1,4 @@
-function noSubmit() {
-    event.preventDefault()
-}
-
-function getQuestion() {
-    const question = document.querySelector("#input")
-    return question.value
-}
-
-var arrAnswer = [
+const arrAnswer = [
     'Claro que sim!',
     'Acho que não :(',
     'Hummm, talvez...',
@@ -18,27 +9,30 @@ var arrAnswer = [
     'Vai dar certo!'
 ]
 
+function noSubmit() {
+    event.preventDefault()
+}
+
 function showAnswer() {
-    const numberRandom = Math.floor(
-        Math.random() * arrAnswer.length - 0
-    )
+    const numberRandom = Math.floor(Math.random() * arrAnswer.length - 0)
+    const question = document.querySelector('#input')
+    const answer = (document.querySelector('#showAnswer').textContent =
+        arrAnswer[numberRandom])
 
-    if (getQuestion() == '') {
-        document
-            .querySelector("#input")
-            .setAttribute('required', 'required')
+    if (question.value == '') {
+        document.querySelector('#input').setAttribute('required', 'required')
 
-        document.querySelector("#question").textContent = ''
-        document.querySelector("#showAnswer").textContent = ''
+        document.querySelector('#question').textContent = ''
+        document.querySelector('#showAnswer').textContent = ''
     } else {
-        document.querySelector("#question").textContent =
-            getQuestion()
-        document.querySelector("#showAnswer").textContent =
-            arrAnswer[numberRandom]
+        document.querySelector('#question').textContent = question.value
 
-        document.querySelector("#input").value = ''
-        document
-            .querySelector("#input")
-            .removeAttribute('required', 'required')
+        document.querySelector('#input').value = ''
+        document.querySelector('#input').removeAttribute('required', 'required')
+
+        setTimeout(() => {
+            document.querySelector('#question').textContent = ''
+            document.querySelector('#showAnswer').textContent = ''
+        }, 10000)
     }
 }

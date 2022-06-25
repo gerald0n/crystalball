@@ -81,3 +81,22 @@ body {
     font-size: 1.8rem;
     
 }
+
+#table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    width: 100%;
+    color: white;
+    height: 50rem;
+}
+
+table {
+    width: 150%;
+    border: none;
+}
+
+#table thead th {
+   padding: 0.7rem;
+}
