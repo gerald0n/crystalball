@@ -3,7 +3,7 @@ function noSubmit() {
 }
 
 function getQuestion() {
-    var question = document.getElementById('input')
+    const question = document.querySelector("#input")
     return question.value
 }
 
@@ -19,26 +19,26 @@ var arrAnswer = [
 ]
 
 function showAnswer() {
-    var numberRandom = Math.floor(
+    const numberRandom = Math.floor(
         Math.random() * arrAnswer.length - 0
     )
 
     if (getQuestion() == '') {
         document
-            .getElementById('input')
+            .querySelector("#input")
             .setAttribute('required', 'required')
 
-        document.getElementById('question').textContent = ''
-        document.getElementById('showAnswer').textContent = ''
+        document.querySelector("#question").textContent = ''
+        document.querySelector("#showAnswer").textContent = ''
     } else {
-        document.getElementById('question').textContent =
+        document.querySelector("#question").textContent =
             getQuestion()
-        document.getElementById('showAnswer').textContent =
+        document.querySelector("#showAnswer").textContent =
             arrAnswer[numberRandom]
 
-        document.getElementById('input').value = ''
+        document.querySelector("#input").value = ''
         document
-            .getElementById('input')
+            .querySelector("#input")
             .removeAttribute('required', 'required')
     }
 }
