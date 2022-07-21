@@ -42,7 +42,7 @@ body {
 }
 
 .main-container button {
-    background-color: rgb(59, 59, 189);
+    background-color: #4d1989;
     color: white;
     transition: filter 0.2s;
 }

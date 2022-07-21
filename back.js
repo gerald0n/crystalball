@@ -19,26 +19,19 @@ var arrAnswer = [
 ]
 
 function showAnswer() {
-    var numberRandom = Math.floor(
-        Math.random() * arrAnswer.length - 0
-    )
+    var numberRandom = Math.floor(Math.random() * arrAnswer.length - 0)
 
     if (getQuestion() == '') {
-        document
-            .getElementById('input')
-            .setAttribute('required', 'required')
+        document.getElementById('input').setAttribute('required', 'required')
 
         document.getElementById('question').textContent = ''
         document.getElementById('showAnswer').textContent = ''
     } else {
-        document.getElementById('question').textContent =
-            getQuestion()
+        document.getElementById('question').textContent = getQuestion()
         document.getElementById('showAnswer').textContent =
             arrAnswer[numberRandom]
 
         document.getElementById('input').value = ''
-        document
-            .getElementById('input')
-            .removeAttribute('required', 'required')
+        document.getElementById('input').removeAttribute('required', 'required')
     }
 }
